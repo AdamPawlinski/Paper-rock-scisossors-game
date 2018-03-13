@@ -16,21 +16,26 @@ var gameState = 'notStarted',
     };
 var newGameElem = document.getElementById('js-newGameElement'),
     pickElem = document.getElementById('js-playerPickElement'),
-    resultsElem = document.getElementById('js-resultsTableElement');
+    resultsElem = document.getElementById('js-resultsTableElement')
+    gameWinner = document.getElementById('js-game-winner');
 function setGameElements() {
   switch(gameState) {
     case 'started':
         newGameElem.style.display = 'none';
         pickElem.style.display = 'block';
         resultsElem.style.display = 'block';
+        gameWinner.style.display = 'none';
       break;
     case 'ended':
         newGameBtn.innerText = 'Jeszcze raz';
+        gameWinner.style.display = 'block';
+        pickElem.style.display = 'none';
     case 'notStarted':
     default:
         newGameElem.style.display = 'block';
         pickElem.style.display = 'none';
         resultsElem.style.display = 'none';
+        gameWinner.style.display = 'none';
   }
 }
 setGameElements();
@@ -74,9 +79,11 @@ function checkRoundWinner(playerPick, computerPick) {
     if (winnerIs == 'player') {
         playerResultElem.innerHTML = "Win!";
         player.score++;
+        setGamePoints();
     } else if (winnerIs == 'computer') {
         computerResultElem.innerHTML = "Win!";
         computer.score++;
+        setGamePoints();
     }
 
 }
@@ -89,4 +96,23 @@ function playerPick(playerPick) {
 function setGamePoints() {
     playerPointsElem.innerHTML = player.score;
     computerPointsElem.innerHTML = computer.score;
+    gameWinnerIs();
+}
+
+var gameWinnerName = document.getElementById('js-game-winner-is');
+
+function gameWinnerIs() {
+  if (player.score === 10) {
+    gameWinnerName.innerText = 'The winner is ' + player.name;
+    gameState = 'ended';
+    setGameElements();
+  }
+  else if (computer.score === 10) {
+    gameWinnerName.innerText = 'The winner is computer';
+    gameState = 'ended';
+    setGameElements();
+  }
+  else {
+    return
+  }
 }
