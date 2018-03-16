@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Mina:400,700');
+body {
+  margin-top: 20vh;
+  background-color: #d7e2de;
+  font-size: 18px;
+  font-family: "Mina", "Times New Roman", serif;
+}
+%margin-top {
+  margin-top: 10vh;
+}
+%box {
+  border: .5px solid #2c2c2d;
+  box-shadow: 3px 3px 2px #848487;
+  padding: 5px;
+  margin: 10px;
+}
+#js-newGameElement {
+  @extend %margin-top;
+}
+#js-playerPickElement,
+#js-resultsTableElement,
+.scores {
+  @extend %margin-top;
+}
+#js-playerResult,
+#js-computerResult{
+  @extend %box;
+}

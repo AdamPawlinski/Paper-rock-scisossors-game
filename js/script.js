@@ -16,8 +16,10 @@ var gameState = 'notStarted',
     };
 var newGameElem = document.getElementById('js-newGameElement'),
     pickElem = document.getElementById('js-playerPickElement'),
-    resultsElem = document.getElementById('js-resultsTableElement')
-    gameWinner = document.getElementById('js-game-winner');
+    resultsElem = document.getElementById('js-resultsTableElement'),
+    gameWinner = document.getElementById('js-game-winner'),
+    gameWinnerName = document.getElementById('js-game-winner-is'),
+    winner = '';
 function setGameElements() {
   switch(gameState) {
     case 'started':
@@ -29,6 +31,7 @@ function setGameElements() {
     case 'ended':
         newGameBtn.innerText = 'Jeszcze raz';
         gameWinner.style.display = 'block';
+        gameWinnerName.innerText = winner;
         pickElem.style.display = 'none';
     case 'notStarted':
     default:
@@ -77,15 +80,14 @@ function checkRoundWinner(playerPick, computerPick) {
     }
 
     if (winnerIs == 'player') {
-        playerResultElem.innerHTML = "Win!";
+        playerResultElem.innerHTML = '<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"> Win!</span>';
         player.score++;
         setGamePoints();
     } else if (winnerIs == 'computer') {
-        computerResultElem.innerHTML = "Win!";
+        computerResultElem.innerHTML = '<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"> Win!</span>';
         computer.score++;
         setGamePoints();
     }
-
 }
 function playerPick(playerPick) {
     var computerPick = getComputerPick();
@@ -98,17 +100,14 @@ function setGamePoints() {
     computerPointsElem.innerHTML = computer.score;
     gameWinnerIs();
 }
-
-var gameWinnerName = document.getElementById('js-game-winner-is');
-
 function gameWinnerIs() {
   if (player.score === 10) {
-    gameWinnerName.innerText = 'The winner is ' + player.name;
+    return winner = 'The winner is ' + player.name;
     gameState = 'ended';
     setGameElements();
   }
   else if (computer.score === 10) {
-    gameWinnerName.innerText = 'The winner is computer';
+    return winner = 'The winner is computer';
     gameState = 'ended';
     setGameElements();
   }
