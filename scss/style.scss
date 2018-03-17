@@ -9,10 +9,11 @@ body {
   margin-top: 10vh;
 }
 %box {
-  border: .5px solid #2c2c2d;
+  border-radius: 5%;
   box-shadow: 3px 3px 2px #848487;
   padding: 5px;
   margin: 10px;
+  color: #FFF;
 }
 #js-newGameElement {
   @extend %margin-top;
@@ -24,5 +25,10 @@ body {
 }
 #js-playerResult,
 #js-computerResult{
+  @extend %box;
+  background-color: #000;
+}
+.player,
+.computer{
   @extend %box;
 }
