@@ -29,13 +29,17 @@ function setGameElements() {
         pickElem.style.display = 'block';
         resultsElem.style.display = 'block';
         gameWinner.style.display = 'none';
+        computerResultElem.style.display = 'none';
+        playerResultElem.style.display = 'none';
       break;
     case 'ended':
         welcome.style.display = 'none';
-        newGameBtn.innerText = 'Jeszcze raz';
+        newGameElem.style.display = 'block';
+        newGameBtn.innerText = 'Play again';
         gameWinner.style.display = 'block';
         gameWinnerName.innerText = winner;
         pickElem.style.display = 'none';
+      break;
     case 'notStarted':
     default:
         welcome.style.display = 'block';
@@ -50,7 +54,7 @@ var playerPointsElem = document.getElementById('js-playerPoints'),
     playerNameElem = document.getElementById('js-playerName'),
     computerPointsElem = document.getElementById('js-computerPoints');
 function newGame() {
-  player.name = prompt('Please enter your name', 'imię gracza');
+  player.name = prompt('Please enter your name', 'player name');
   if (player.name) {
     player.score = computer.score = 0;
     gameState = 'started';
@@ -58,9 +62,6 @@ function newGame() {
     playerNameElem.innerHTML = player.name;
 	setGamePoints();
   }
-}
-function playerPick(playerPick) {
-    console.log(playerPick);
 }
 function getComputerPick() {
     var possiblePicks = ['rock', 'paper', 'scissors'];
@@ -113,16 +114,13 @@ function setGamePoints() {
 }
 function gameWinnerIs() {
   if (player.score === 10) {
-    return winner = 'The winner is ' + player.name;
+    winner = 'The winner is ' + player.name;
     gameState = 'ended';
     setGameElements();
   }
   else if (computer.score === 10) {
-    return winner = 'The winner is computer';
+    winner = 'The winner is computer';
     gameState = 'ended';
     setGameElements();
-  }
-  else {
-    return
   }
 }
