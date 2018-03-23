@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Mina:400,700');
+
 body {
   margin-top: 20vh;
   background-color: #d7e2de;
   font-size: 18px;
   font-family: "Mina", "Times New Roman", serif;
 }
+
 %margin-top {
   margin-top: 10vh;
 }
+
 %box {
   border-radius: 5%;
   box-shadow: 3px 3px 2px #848487;
@@ -15,19 +18,23 @@ body {
   margin: 10px;
   color: #FFF;
 }
+
 #js-newGameElement {
   @extend %margin-top;
 }
+
 #js-playerPickElement,
 #js-resultsTableElement,
 .scores {
   @extend %margin-top;
 }
+
 #js-playerResult,
 #js-computerResult{
   @extend %box;
   background-color: #000;
 }
+
 .player,
 .computer{
   @extend %box;
