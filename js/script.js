@@ -67,18 +67,13 @@ function newGame() {
   }
   if (player.name) {
   start();
-  } else if(!player.name) {
-      player.name = prompt('You forgot to enter your name. Please tell me who you are?', 'player name');
-      if (player.name){
-      start();
-    } else if(confirm("Do you really don't want to tell me your name?")) {
+  } else if(confirm("Do you really don't want to tell me your name?")) {
       player.name = '';
       start();
-      }
-      else {
-        player.name = prompt('Please enter your name', 'player name');
-        start();
-      }
+    }
+    else {
+      player.name = prompt('Please enter your name', 'player name');
+      start();
     }
   }
 
