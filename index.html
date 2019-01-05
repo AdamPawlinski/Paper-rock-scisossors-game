@@ -8,9 +8,9 @@
 		<link href="css/style.css" type="text/css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
-	<body>
-		<section class="container-fluid">
-			<div class="container welcome-board" id="js-welcome">			
+	<body>		
+		<section class="container-fluid welcome-board">
+			<div id="js-welcome">			
 				<div class="row">
 					<div class="col-xs-12">
 						<h3 class="text-center text-uppercase welcome">
@@ -31,14 +31,14 @@
 					</div>
 				</div>						
 			</div>
-		</section>
-		<section id="js-newGameElement" class="container-fluid">
-			<div class="row text-center">
-				<button  type="button" id="js-newGameButton" class="btn btn-success btn-lg">
-					New game
-				</button>
+			<div id="js-newGameElement" class="container-fluid">
+				<div class="row text-center">
+					<button  type="button" id="js-newGameButton" class="btn btn-success btn-lg">
+						New game
+					</button>
+				</div>
 			</div>
-		</section>
+		</section>		
 		<section id="js-game-winner">
 			<div class="row">
 				<div class="col-xs-12 text-center">
@@ -116,7 +116,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="text-center">
+						<tr class="danger text-center">
 							<td id="js-playerPick" class="text-uppercase"></td>
 							<td id="js-playerResult"></td>
 							<td id="js-computerResult"></td>
@@ -125,6 +125,8 @@
 					</tbody>
 				</table>
 			</div>		 
+		</section>
+		<section class="new-game">
 		</section>
 		<script language="javascript" src="js/script.js"></script>
 	</body>

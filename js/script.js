@@ -21,7 +21,8 @@ var newGameElem = document.getElementById('js-newGameElement'),
     roundElem = document.getElementById('js-roundTableElement'),
     gameWinner = document.getElementById('js-game-winner'),
     gameWinnerName = document.getElementById('js-game-winner-is'),
-    welcome = document.getElementById('js-welcome'),
+    welcome = document.querySelector('.welcome-board'),
+    newGame = document.querySelector('.new-game'),
     winner = '';
 
 function setGameElements() {
@@ -38,6 +39,7 @@ function setGameElements() {
       break;
     case 'ended':
         welcome.style.display = 'none';
+        newGame.appendChild(newGameElem);
         newGameElem.style.display = 'block';
         newGameBtn.innerText = 'Play again';
         gameWinner.style.display = 'block';
@@ -47,7 +49,7 @@ function setGameElements() {
     case 'notStarted':
     default:
         welcome.style.display = 'block';
-        newGameElem.style.display = 'block';
+        newGameElem.style.display = 'block';        
         pickElem.style.display = 'none';
         resultsElem.style.display = 'none';
         roundElem.style.display = 'none';
@@ -63,6 +65,7 @@ function newGame() {
   player.name = prompt('Please enter your name', 'player name');
   function start(){
     player.score = computer.score = 0;
+    playerPickElem.innerText = computerPickElem.innerText = '';
     gameState = 'started';
     setGameElements();
     playerNameElem.innerHTML = player.name;
