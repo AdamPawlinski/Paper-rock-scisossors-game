@@ -9,20 +9,34 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body>
-		<section class="container" id="js-welcome">
-			<div class="row">
-				<div class="col-xs-12">
-					<h3 class="text-center">
-					Welcome to the game
-					</h3>
+		<section class="container-fluid">
+			<div class="container welcome-board" id="js-welcome">			
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="text-center text-uppercase welcome">
+						Welcome to the game
+						</h3>
+					</div>
 				</div>
+				<div class="row">
+					<div class="col-xs-12 text-center image-container">
+						<button type="button" class="btn btn-default image image-rock" disabled="disabled">Rock</button>
+						<button type="button"  class="btn btn-info image image-paper" disabled="disabled">Paper</button>
+						<button type="button" class="btn btn-danger image image-scissors" disabled="disabled">Scissors</button>
+						<span class="image-arrows">
+							<span class="glyphicon glyphicon-chevron-right image-arrows-right" aria-hidden="true"></span>
+							<span class="glyphicon glyphicon-chevron-down image-arrows-down" aria-hidden="true"></span>
+							<span class="glyphicon glyphicon-chevron-left image-arrows-left" aria-hidden="true"></span>
+						</span>
+					</div>
+				</div>						
 			</div>
-			<div class="row">
-				<div class="col-xs-12 text-center">
-					<span class="label label-default">Rock</span>
-					<span class="label label-info">Paper</span>
-					<span class="label label-danger">Scissors</span>
-				</div>
+		</section>
+		<section id="js-newGameElement" class="container-fluid">
+			<div class="row text-center">
+				<button  type="button" id="js-newGameButton" class="btn btn-success btn-lg">
+					New game
+				</button>
 			</div>
 		</section>
 		<section id="js-game-winner">
@@ -33,87 +47,84 @@
 					</div>
 				</div>
 			</div>
+		</section>		
+		
+		<section id="js-resultsTableElement" class="container-fluid">
+			<div class="row">
+					<span class="col-md-4 col-md-offset-4 text-center text-uppercase">Scoreboard:</span>
+			</div>
+			<div class="col-xs-4 col-xs-offset-4">				
+				<table class="table table-condensed text-center">
+					<thead>
+						<tr>
+							<td>Player Name</td>
+							<td>player score</td>
+							<td>computer score</td>
+							<td>Computer</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="danger text-center">
+							<td id="js-playerName" class="text-uppercase"></td>
+							<td id="js-playerPoints">0</td>
+							<td id="js-computerPoints">0</td>
+							<td class="text-uppercase">Your Computer</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</section>
-		<section id="js-newGameElement" class="container">
-		  <div class="row text-center">
-				<button  id="js-newGameButton" class="btn btn-success btn-lg">
-				  New game
-				</button>
-		  </div>
-		</section>
-		<section id="js-playerPickElement" class="container">
-		  <div class="row text-center">
-			<button id="js-playerPick_rock" class="label label-default">
-			  <span class="badge">
-					<i class="fa fa-hand-rock-o" aria-hidden="true"></i>
-			  </span>
-			  Rock
-			</button>
-			<button id="js-playerPick_paper"  class="label label-info">
-			  <span class="badge">
-			  <i class="fa fa-hand-paper-o" aria-hidden="true"></i>
-			  </span>
-			  Paper
-			</button>
-			<button id="js-playerPick_scissors"  class="label label-danger">
-			  <span class="badge">
-			  <i class="fa fa-hand-scissors-o" aria-hidden="true"></i>
-			  </span>
-			  Scissors
-			</button>
-		  </div>
-		</section>
-		<section id="js-resultsTableElement" class="container">
-		  <div class="row">
-				<div class="col-xs-3 col-xs-offset-1 text-center player-points">
-					<button class="btn btn-danger player" type="button">
-					  <span id="js-playerPoints" class="badge">
-					  0
-					  </span>
-					  <span id="js-playerName" class="text-uppercase">
-					  Player Name
-					  </span>
-					</button>
-				</div>
-				<div class="col-xs-1 text-center">
-					<span id="js-playerPick">
-					Player selection
-					</span>
-				</div>
-				<div class="col-xs-2 text-center">
-					<span>
-					VS
-					</span>
-				</div>
-				<div class="col-xs-1 text-center">
-					<span id="js-computerPick">
-					Computer selection
-					</span>
-				</div>
-				<div class="col-xs-3 text-center computer-points">
-					<button class="btn btn-primary computer" type="button">
-					  <span id="js-computerPoints" class="badge">
-					  0
-					  </span>
-						<span class="text-uppercase">
-							Computer
+		<section id="js-playerPickElement" class="container-fluid">
+			<div class="row">
+					<span class="col-md-4 col-md-offset-4 text-center text-uppercase">Pick your tool to play:</span>
+			</div>
+			<div class="row center-block btn-group">				
+				<div class="col-md-4 col-md-offset-4 text-center">
+					<button id="js-playerPick_rock" class="btn btn-default active">
+						<span class="badge">
+							<i class="fa fa-hand-rock-o" aria-hidden="true"></i>
 						</span>
+						Rock
+					</button>
+					<button id="js-playerPick_paper"  class="btn btn-info active">
+						<span class="badge">
+						<i class="fa fa-hand-paper-o" aria-hidden="true"></i>
+						</span>
+						Paper
+					</button>
+					<button id="js-playerPick_scissors"  class="btn btn-danger active">
+						<span class="badge">
+						<i class="fa fa-hand-scissors-o" aria-hidden="true"></i>
+						</span>
+						Scissors
 					</button>
 				</div>
-		  </div>
-		  <div class="row scores">
-				<div class="col-xs-2 col-xs-offset-2 text-center">
-				  <span id="js-playerResult">
-					Player Score
-				  </span>
-				</div>
-				<div class="col-xs-4"></div>
-				<div class="col-xs-2 text-center">
-				  <span id="js-computerResult">
-					Computer Score
-				  </span>
-				</div>
-		  </div>
+			</div>
+		</section>
+		<section id="js-roundTableElement" class="container-fluid">
+			<div class="row">
+					<span class="col-md-4 col-md-offset-4 text-center text-uppercase">Round results:</span>
+			</div>
+			<div class="col-xs-4 col-xs-offset-4">				
+				<table class="table text-center">
+					<thead>
+						<tr>
+							<td>Player selection</td>
+							<td>player score</td>
+							<td>computer score</td>
+							<td>Computer selection</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="text-center">
+							<td id="js-playerPick" class="text-uppercase"></td>
+							<td id="js-playerResult"></td>
+							<td id="js-computerResult"></td>
+							<td id="js-computerPick" class="text-uppercase"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>		 
 		</section>
 		<script language="javascript" src="js/script.js"></script>
 	</body>

@@ -18,6 +18,7 @@ var gameState = 'notStarted',
 var newGameElem = document.getElementById('js-newGameElement'),
     pickElem = document.getElementById('js-playerPickElement'),
     resultsElem = document.getElementById('js-resultsTableElement'),
+    roundElem = document.getElementById('js-roundTableElement'),
     gameWinner = document.getElementById('js-game-winner'),
     gameWinnerName = document.getElementById('js-game-winner-is'),
     welcome = document.getElementById('js-welcome'),
@@ -30,9 +31,10 @@ function setGameElements() {
         newGameElem.style.display = 'none';
         pickElem.style.display = 'block';
         resultsElem.style.display = 'block';
+        roundElem.style.display = 'block';
         gameWinner.style.display = 'none';
-        computerResultElem.style.display = 'none';
-        playerResultElem.style.display = 'none';
+        computerResultElem.style.visibility = 'hidden';
+        playerResultElem.style.visibility = 'hidden';
       break;
     case 'ended':
         welcome.style.display = 'none';
@@ -48,6 +50,7 @@ function setGameElements() {
         newGameElem.style.display = 'block';
         pickElem.style.display = 'none';
         resultsElem.style.display = 'none';
+        roundElem.style.display = 'none';
         gameWinner.style.display = 'none';
   }
 }
@@ -88,29 +91,28 @@ var playerPickElem = document.getElementById('js-playerPick'),
     computerResultElem = document.getElementById('js-computerResult');
 
 function checkRoundWinner(playerPick, computerPick) {
-  playerResultElem.innerHTML = computerResultElem.innerHTML = '';
+  playerResultElem.innerHTML = computerResultElem.innerHTML = '<span aria-hidden="true"> Win!</span>';
   var winnerIs = 'player';
     if (playerPick === computerPick) {
-        winnerIs = 'noone';
-        playerResultElem.style.display = 'none';
-        computerResultElem.style.display = 'none';
+        winnerIs = 'none';
+        playerResultElem.innerHTML = computerResultElem.innerHTML = '<span aria-hidden="true"> DRAW </span>'
+        playerResultElem.style.visibility = 'visible';
+        computerResultElem.style.visibility = 'visible';
     } else if ((computerPick === 'rock' &&  playerPick === 'scissors') ||
         (computerPick === 'scissors' &&  playerPick === 'paper') ||
         (computerPick === 'paper' &&  playerPick === 'rock')) {
         winnerIs = 'computer';
-        computerResultElem.style.display = 'block';
-        playerResultElem.style.display = 'none';
+        computerResultElem.style.visibility = 'visible';
+        playerResultElem.style.visibility = 'hidden';
     }
     else {
-        playerResultElem.style.display = 'block';
-        computerResultElem.style.display = 'none';
+        playerResultElem.style.visibility = 'visible';
+        computerResultElem.style.visibility = 'hidden';
     }
     if (winnerIs == 'player') {
-        playerResultElem.innerHTML = '<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"> Win!</span>';
         player.score++;
         setGamePoints();
     } else if (winnerIs == 'computer') {
-        computerResultElem.innerHTML = '<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"> Win!</span>';
         computer.score++;
         setGamePoints();
     }

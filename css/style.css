@@ -1,26 +1,100 @@
-@import url("https://fonts.googleapis.com/css?family=Mina:400,700");
+@import url("https://fonts.googleapis.com/css?family=Mina:400,700|Roboto|Audiowide");
 body {
-  margin-top: 20vh;
-  background-color: #d7e2de;
-  font-size: 18px;
-  font-family: "Mina", "Times New Roman", serif; }
+  margin-top: 5vh;
+  background-color: #ffffff;
+  font-size: 1.5rem;
+  font-family: "Mina", sans-serif; }
 
 #js-newGameElement, #js-playerPickElement,
 #js-resultsTableElement,
+#js-roundTableElement,
 .scores {
   margin-top: 10vh; }
 
-#js-playerResult,
-#js-computerResult, .player,
-.computer {
-  border-radius: 5%;
-  box-shadow: 3px 3px 2px #848487;
+.welcome-board {
+  border: 0;
+  border-radius: 15%;
+  box-shadow: 2px 2px 4px #848487;
+  color: #FFF;
+  margin: 1rem;
+  opacity: .7;
+  padding: 3%; }
+
+#js-playerPoints,
+#js-computerPoints,
+#js-game-winner-is {
+  border-radius: 5px;
+  background: #eaf1ef;
+  color: #444443;
+  font-family: "Audiowide";
+  margin: 5px 115px 50px 115px;
   padding: 5px;
-  margin: 10px;
-  color: #FFF; }
+  text-shadow: 1px 1px 1px #000; }
 
 #js-playerResult,
 #js-computerResult {
-  background-color: #000; }
+  border-radius: 5px;
+  background: #eaf1ef;
+  color: #444443;
+  font-family: "Audiowide";
+  margin: 5px 115px 50px 115px;
+  padding: 5px;
+  text-shadow: 1px 1px 1px #000; }
+
+.welcome-board {
+  background-color: #eaf1ef;
+  color: #000;
+  margin: auto;
+  transition: opacity 1s ease;
+  width: 40%; }
+
+.welcome-board:hover {
+  opacity: 1;
+  background-color: #dee0e0; }
+
+.image {
+  pointer-events: none; }
+
+.welcome {
+  font: 3rem, 'Roboto', sans-serif;
+  margin: 5rem;
+  opacity: 1;
+  transition: opacity 2s; }
+
+.image-container {
+  height: 10rem; }
+
+.image-paper {
+  position: absolute;
+  top: 0;
+  left: 43%; }
+
+.image-rock {
+  position: absolute;
+  top: 60%;
+  left: 27%; }
+
+.image-scissors {
+  position: absolute;
+  top: 60%;
+  right: 23%; }
+
+.image-arrows-right {
+  position: absolute;
+  top: 65%;
+  left: 42%;
+  opacity: .5; }
+
+.image-arrows-left {
+  position: absolute;
+  top: 65%;
+  right: 42%;
+  opacity: .5; }
+
+.image-arrows-down {
+  position: absolute;
+  top: 40%;
+  left: 48%;
+  opacity: .5; }
 
 /*# sourceMappingURL=style.css.map */
